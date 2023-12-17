@@ -1,0 +1,38 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container{
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background-color: rgb(10, 10, 10);
+  font-family: 'Poppins', sans-serif;
+}
+.digits-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.digit{
+  width: calc(2ch + 1rem);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  font-size: 8rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  padding: .5rem;
+  border-radius: 1rem;
+  background-color: rgb(28, 28, 28);
+}
+.digit-box{
+  position: relative;
+}
+.next-digit{
+  position: absolute;
+}
