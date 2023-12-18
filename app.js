@@ -1,18 +1,21 @@
-const currentHour = document.querySelector('.current-hour');
-const currentMinute = document.querySelector('.current-minute');
-const currentSecond = document.querySelector('.current-second');
+function flipClock(){
+  const currentHour = document.querySelector('.current-hour');
+  const currentMinute = document.querySelector('.current-minute');
+  const currentSecond = document.querySelector('.current-second');
 
-const displayTime = () => {
-  const date = new Date();
-  let hrs = date.getHours();
-  let min = date.getMinutes();
-  let sec = date.getSeconds();
+  const timeDelay = 1000;
 
-  currentHour.innerHTML = hrs;
-  currentMinute.innerHTML = min;
-  currentSecond.innerHTML = sec;  
+  const displayTime = () => {
+    const date = new Date();
+    let hrs = date.getHours();
+    let min = date.getMinutes();
+    let sec = date.getSeconds();
+
+    currentHour.innerHTML = hrs > 9 ? hrs : "0" + hrs;
+    currentMinute.innerHTML = min > 9 ? min : "0" + min;
+    currentSecond.innerHTML = sec > 9 ? sec : "0" + sec;  
+  }
+
+  setInterval(displayTime, timeDelay);
 }
-
-setInterval(displayTime, 1000);
-
-console.log(1)
+flipClock();
