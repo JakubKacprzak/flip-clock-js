@@ -7,8 +7,10 @@ function flipClock(){
   const nextMinute = document.querySelector('.next-minute');
   const nextSecond = document.querySelector('.next-second');
 
+  const flipDigit = document.querySelectorAll('.flip-digit');
 
   const timeDelay = 1000;
+
   let currHrs;
   let currMin;
   let currSec;
@@ -32,11 +34,14 @@ function flipClock(){
 
     currentHour.innerHTML = currHrs > 9 ? currHrs : "0" + currHrs;
     currentMinute.innerHTML = currMin > 9 ? currMin : "0" + currMin;
-    currentSecond.innerHTML = currSec > 9 ? currSec : "0" + currSec;
+    currentSecond.innerHTML = nextSec > 9 ? nextSec : "0" + nextSec;
     
-    nextHour.innerHTML = nextHrs > 9 ? nextHrs : "0" + nextHrs;
-    nextMinute.innerHTML = nextMin > 9 ? nextMin : "0" + nextMin;
-    nextSecond.innerHTML = nextSec > 9 ? nextSec : "0" + nextSec;
+    // nextHour.innerHTML = nextHrs > 9 ? nextHrs : "0" + nextHrs;
+    // nextMinute.innerHTML = nextMin > 9 ? nextMin : "0" + nextMin;
+    // nextSecond.innerHTML = nextSec;
+
+    flipDigit.forEach(element => element.innerHTML = currSec > 9 ? currSec : "0" + currSec);
+
   }
 
   setInterval(displayTime, timeDelay);
