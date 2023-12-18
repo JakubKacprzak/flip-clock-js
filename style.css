@@ -35,4 +35,5 @@
 }
 .next-digit{
   position: absolute;
+  display: none;
 }
