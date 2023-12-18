@@ -3,11 +3,7 @@ function flipClock(){
   const currentMinute = document.querySelector('.current-minute');
   const currentSecond = document.querySelector('.current-second');
 
-  const nextHour = document.querySelector('.next-hour');
-  const nextMinute = document.querySelector('.next-minute');
-  const nextSecond = document.querySelector('.next-second');
-
-  const flipDigit = document.querySelectorAll('.flip-digit');
+  const flipDigitTop = document.querySelectorAll('.flip-digit');
 
   const timeDelay = 1000;
 
@@ -35,12 +31,32 @@ function flipClock(){
     currentHour.innerHTML = currHrs > 9 ? currHrs : "0" + currHrs;
     currentMinute.innerHTML = currMin > 9 ? currMin : "0" + currMin;
     currentSecond.innerHTML = nextSec > 9 ? nextSec : "0" + nextSec;
-    
-    // nextHour.innerHTML = nextHrs > 9 ? nextHrs : "0" + nextHrs;
-    // nextMinute.innerHTML = nextMin > 9 ? nextMin : "0" + nextMin;
-    // nextSecond.innerHTML = nextSec;
 
-    flipDigit.forEach(element => element.innerHTML = currSec > 9 ? currSec : "0" + currSec);
+    flipDigitTop.forEach(element => element.innerHTML = `<span>${currSec > 9 ? currSec : "0" + currSec}</span>`)
+
+    flipDigitTop[0].animate(
+      [
+          {transform: "rotateX(0)"},
+          {transform: "rotateX(90deg)"}
+      ],
+      {
+        duration: 500,
+        iterations: 1,
+        delay: 500
+      }
+    )
+    flipDigitTop[1].animate(
+      [
+          {transform: "rotateX(90deg)"},
+          {transform: "rotateX(0)"}
+      ],
+      {
+        duration: 500,
+        iterations: 1,
+        endDelay: 500
+      }
+    )
+
 
   }
 
